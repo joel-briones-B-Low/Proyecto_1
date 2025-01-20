@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    Inicio de sesión
+{% endblock %}
+
+{% block contenido %}
+    <div class="img_fondo">
+
+        <main class="fondo_login">
+            <section class="contenido_login">
+                <div class="contenido_login--titulo">
+                    <h1 class="titulo_login">Estrellas</h1>
+                </div>
+
+                <div class="contenido_login--sub">
+                    <h3 class="subtitulo">
+                        Un viaje a lo desconocido
+                    </h3>
+                </div>
+
+                <form class="form" id="formLogin">
+
+                    <label for="user_name" class="label_user">Usuario</label>
+                    <input type="text" placeholder="Usuario123" class="input_user" id="userName">
+
+                    <label for="user_pass" class="label_user">Contraseña</label>
+                    <input type="password" placeholder="***" class="input_user" id="userPass">
+
+                    <div class="area_boton">
+                        <div>
+                            <button  class="boton_main" id="botonLogin">Iniciar</button>
+                        </div>
+                    </div>
+
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <script src="{{url_for('static', filename='js/app.js')}}" ></script>
+{% endblock %}
