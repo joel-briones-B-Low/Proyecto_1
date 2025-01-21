@@ -7,7 +7,6 @@ from rendertemplates.render_pag import *
 from end_points.login_end import InicioSesion
 from end_points.vulnerable import vulnerable
 from bada.Conexion import iniciarConexion, db
-from flask_cors import CORS
 
 app = Flask(__name__)
 
