@@ -1,7 +1,7 @@
-from flask_mysqldb import MySQL
+#from flask_mysqldb import MySQL
 from flask_sqlalchemy import SQLAlchemy  
 
-mysql = MySQL()
+db = SQLAlchemy()  
 
 def iniciarConexion(app):
     """
@@ -10,4 +10,4 @@ def iniciarConexion(app):
     app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:root@localhost/proyecto_1'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
 
-    db = SQLAlchemy(app)
+    db.init_app(app)

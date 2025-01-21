@@ -5,11 +5,14 @@ Este archivo es el principal de mi aplicacion
 from flask  import Flask
 from rendertemplates.render_login import *
 from end_points.login_end import InicioSesion
-from bada.Conexion import *
+from bada.Conexion import iniciarConexion, db
 
 app = Flask(__name__)
 
 iniciarConexion(app)
+
+with app.app_context():
+    db.create_all()
 
 @app.route('/')
 def index():

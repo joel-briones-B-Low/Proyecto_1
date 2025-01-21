@@ -1,4 +1,5 @@
 from flask import jsonify
 
-def respuestaError():
-    return jsonify({"error": "Error en la solicitud"}), 400
+def respuestaError(mensaje):
+    return jsonify({"error": mensaje}), 400
+
