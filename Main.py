@@ -3,11 +3,15 @@ Este archivo es el principal de mi aplicacion
 """
 
 from flask  import Flask
-from rendertemplates.render_login import *
+from rendertemplates.render_pag import *
 from end_points.login_end import InicioSesion
+from end_points.vulnerable import vulnerable
 from bada.Conexion import iniciarConexion, db
+from flask_cors import CORS
 
 app = Flask(__name__)
+
+CORS(app)
 
 iniciarConexion(app)
 
@@ -21,7 +25,11 @@ def index():
     """
     return render_login()
 
-app.register_blueprint(InicioSesion)
+@app.route('/vulnerable')
+def vulnerable_pag():
+    return render_vul()
 
+app.register_blueprint(InicioSesion)
+app.register_blueprint(vulnerable)
 if __name__ == '__main__':
     app.run(port=8080, debug=True)

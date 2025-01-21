@@ -26,8 +26,9 @@ document.addEventListener('DOMContentLoaded', () =>{
         })
         .then(response => response.json())
         .then(data => {
-            console.log('Respuesta de la API:', data);
-            
+                if(data.USUARIO){
+                    window.location.href= '/vulnerable'
+                }
         })
         .catch(error => {
             console.error('Error al realizar la petición:', error);

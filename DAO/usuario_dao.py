@@ -1,4 +1,4 @@
-from flask import request
+from flask import request, redirect, url_for
 from bada.Conexion import db
 from modelos.usuario import Usuario
 
