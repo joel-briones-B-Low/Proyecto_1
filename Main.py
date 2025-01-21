@@ -11,8 +11,6 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 
-CORS(app)
-
 iniciarConexion(app)
 
 with app.app_context():
