@@ -4,14 +4,14 @@ from decoradores.decorador_cors import corsPublico
 from respuestas.respuesta_error import respuestaError
 from respuestas.respuesta_get import respuestaGet
 from CQRS.usuario_cqrs import verificarDato
-from controlador.controller_usuario import loginContro
+from controlador.controller_usuario import loginContro, eliminarContro, getContro
 
-InicioSesion = Blueprint('login', __name__)
-
-
+UsuarioEnd = Blueprint('login', __name__)
 
 
-@InicioSesion.route('/login', methods=['POST'])
+
+
+@UsuarioEnd.route('/login', methods=['POST'])
 @corsPublico
 def login():
     
@@ -53,4 +53,17 @@ def login():
     esto lo que evita es una inyeccion de sql al hacer parametros seguros
     """
 
+    return respuestaGet(obj='USUARIO', datos=peticion)
+
+@UsuarioEnd.route('/usuario/eliminar/<int:id>', methods=['DELETE'])
+def eliminarUsuario(id):
+    verificarDato(id)
+    
+    peticion = eliminarContro(id=id)
+
+    return respuestaGet(obj='USUARIO', datos=peticion)
+
+@UsuarioEnd.route('/usuario/get', methods=['GET'])
+def getUsuario():
+    peticion = getContro()
     return respuestaGet(obj='USUARIO', datos=peticion)

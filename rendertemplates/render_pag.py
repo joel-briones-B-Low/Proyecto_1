@@ -10,3 +10,6 @@ def render_login():
 
 def render_vul():
     return render_template('vulnerable.html')
+
+def render_usu():
+    return render_template('usuario.html')

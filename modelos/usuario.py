@@ -16,9 +16,16 @@ class Usuario(db.Model):
 
     def respuesta(self):
         usuario = {
+            'id': self.idUsuario,
             'nombre': self.nombreUsuario,
             'contrasenia': self.contrasenia
         }
-        
         return usuario
+
+    def usuario_to_dict(self):
+        return {
+        'idUsuario': self.idUsuario,
+        'nombreUsuario': self.nombreUsuario,
+        'contrasenia': self.contrasenia,  
+        }
     

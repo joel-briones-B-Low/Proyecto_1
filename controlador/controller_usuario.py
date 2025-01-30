@@ -1,6 +1,6 @@
 from flask import request
-from DAO.usuario_dao import loginDao
 from respuestas.respuesta_error import respuestaError
+from DAO.usuario_dao import loginDao, eliminarDao, getDao 
 
 
 def loginContro(data,usu, pas):
@@ -9,4 +9,8 @@ def loginContro(data,usu, pas):
     else:
         respuestaError('Error de Metodos')
         
-        
+def eliminarContro(id):
+    return eliminarDao(id)
+
+def getContro():
+    return getDao()
