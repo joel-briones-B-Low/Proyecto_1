@@ -1,14 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block titulo %}
+    Inicio de sesión
+{% endblock %}
+
+{% block contenido %}
     <h1>vulnerable</h1>
-    <button id="boton">boton</button>
-    <button id="url">url</button>
+    <button id="boton" class="boton_main">boton</button>
+    <button id="url" class="boton_main">url</button>
+    <button id="html" class="boton_main">html</button>
+    <!-- se que hay errores semanticos pero es por animos de la practica JAJAJAJAJ -->
+    <main id="contenidoUsuario"></main>
+
     <script src="{{url_for('static', filename='js/vulnerable.js')}}"></script>
-</body>
-</html>
+{% endblock %}
